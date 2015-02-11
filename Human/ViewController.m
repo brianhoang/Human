@@ -16,6 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    //add sound to main title screen
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"DarkTimes" ofType:@"mp3"]];
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    player.numberOfLoops = 1;
+    [player play];
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 

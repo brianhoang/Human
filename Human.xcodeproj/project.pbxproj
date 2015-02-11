@@ -14,6 +14,12 @@
 		931C3E741A76261B00462845 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931C3E731A76261B00462845 /* Images.xcassets */; };
 		931C3E771A76261B00462845 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 931C3E751A76261B00462845 /* LaunchScreen.xib */; };
 		931C3E831A76261B00462845 /* HumanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 931C3E821A76261B00462845 /* HumanTests.m */; };
+		931C3E8F1A76283700462845 /* title.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 931C3E8E1A76283700462845 /* title.jpg */; };
+		931C3E911A762C3B00462845 /* DarkTimes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 931C3E901A762C3B00462845 /* DarkTimes.mp3 */; };
+		931C3E941A762DF100462845 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 931C3E931A762DF100462845 /* GameController.m */; };
+		9395381A1A776253003C39E2 /* gameBackground.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 939538191A776253003C39E2 /* gameBackground.jpeg */; };
+		939538201A77891C003C39E2 /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = 9395381F1A77891C003C39E2 /* head.png */; };
+		939538221A778931003C39E2 /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = 939538211A778931003C39E2 /* body.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +46,13 @@
 		931C3E7C1A76261B00462845 /* HumanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HumanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		931C3E811A76261B00462845 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		931C3E821A76261B00462845 /* HumanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HumanTests.m; sourceTree = "<group>"; };
+		931C3E8E1A76283700462845 /* title.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = title.jpg; sourceTree = "<group>"; };
+		931C3E901A762C3B00462845 /* DarkTimes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = DarkTimes.mp3; sourceTree = "<group>"; };
+		931C3E921A762DF100462845 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameController.h; path = ../GameController.h; sourceTree = "<group>"; };
+		931C3E931A762DF100462845 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameController.m; path = ../GameController.m; sourceTree = "<group>"; };
+		939538191A776253003C39E2 /* gameBackground.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gameBackground.jpeg; sourceTree = "<group>"; };
+		9395381F1A77891C003C39E2 /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head.png; sourceTree = "<group>"; };
+		939538211A778931003C39E2 /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +94,17 @@
 		931C3E651A76261B00462845 /* Human */ = {
 			isa = PBXGroup;
 			children = (
+				931C3E901A762C3B00462845 /* DarkTimes.mp3 */,
+				939538211A778931003C39E2 /* body.png */,
+				9395381F1A77891C003C39E2 /* head.png */,
+				939538191A776253003C39E2 /* gameBackground.jpeg */,
+				931C3E8E1A76283700462845 /* title.jpg */,
 				931C3E6A1A76261B00462845 /* AppDelegate.h */,
 				931C3E6B1A76261B00462845 /* AppDelegate.m */,
 				931C3E6D1A76261B00462845 /* ViewController.h */,
 				931C3E6E1A76261B00462845 /* ViewController.m */,
+				931C3E921A762DF100462845 /* GameController.h */,
+				931C3E931A762DF100462845 /* GameController.m */,
 				931C3E701A76261B00462845 /* Main.storyboard */,
 				931C3E731A76261B00462845 /* Images.xcassets */,
 				931C3E751A76261B00462845 /* LaunchScreen.xib */,
@@ -199,8 +219,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				931C3E911A762C3B00462845 /* DarkTimes.mp3 in Resources */,
+				939538221A778931003C39E2 /* body.png in Resources */,
 				931C3E721A76261B00462845 /* Main.storyboard in Resources */,
+				9395381A1A776253003C39E2 /* gameBackground.jpeg in Resources */,
 				931C3E771A76261B00462845 /* LaunchScreen.xib in Resources */,
+				939538201A77891C003C39E2 /* head.png in Resources */,
+				931C3E8F1A76283700462845 /* title.jpg in Resources */,
 				931C3E741A76261B00462845 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				931C3E6F1A76261B00462845 /* ViewController.m in Sources */,
+				931C3E941A762DF100462845 /* GameController.m in Sources */,
 				931C3E6C1A76261B00462845 /* AppDelegate.m in Sources */,
 				931C3E691A76261B00462845 /* main.m in Sources */,
 			);
@@ -414,6 +440,7 @@
 				931C3E881A76261B00462845 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		931C3E891A76261B00462845 /* Build configuration list for PBXNativeTarget "HumanTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +449,7 @@
 				931C3E8B1A76261B00462845 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
