@@ -8,10 +8,9 @@
 
 #import "GameController.h"
 
-const uint32_t HEAD_CATEGORY  = 0x1 << 0;
-const uint32_t FOOD_CATEGORY  = 0x1 << 1;
 
 int count = 0;
+
 @interface GameController ()
 
 @end
@@ -21,21 +20,18 @@ int count = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    snakeBody = [[NSMutableArray alloc]init];
-    //[snakeBody addObject:snakeBlock];
     
-   
+    //creates an mutable array
+    snakeBody = [[NSMutableArray alloc]init];
+    
+    //add head to snakebody
+    [snakeBody addObject:snakeBlock];
+
+    //makes all imageview in outlet collection hidden
     for (UIImageView *body in images){
         body.hidden = YES;
     }
     
-    [snakeBody addObject:snakeBlock];
-
-
-    
-    //snakeBlock4.hidden = YES;
-    snakeBlock5.hidden = YES;
-
     
     //when view loads up, food will be hidden
     food.hidden = YES;
@@ -69,31 +65,37 @@ int count = 0;
 }
 
 -(void)snakeMoving {
-    //snakeBlock4.hidden = NO;
-   // snakeBlock.center = CGPointMake(snakeBlock.center.x + snakeX, snakeBlock.center.y + snakeY);
-    //[snakeBody addObject:snakeBlock];
-    
+   
+    //happens every .3 seconds
+    //iterates through array moving the body
     for (int i = (int)snakeBody.count ; i > 1; i-- ){
         UIImageView* before = [snakeBody objectAtIndex:i-1];
         UIImageView* after = [snakeBody objectAtIndex:i-2];
         before.center = CGPointMake(after.center.x, after.center.y);
     };
+        //updates head
         snakeBlock.center = CGPointMake(snakeBlock.center.x + snakeX, snakeBlock.center.y + snakeY);
-       // [snakeBody addObject:snakeBlock];
+    NSLog(@"%f",snakeBlock.center.x);
 
+    //makes body not hidden
     for (UIImageView *body in snakeBody){
         body.hidden = NO;
     }
-    
-   // snakeBlock.center = CGPointMake(snakeBlock.center.x + snakeX, snakeBlock.center.y + snakeY);
     
     //if detect collison between head and foo
     if (CGRectIntersectsRect(snakeBlock.frame, food.frame)){
         //replace new food
         [self placeFood];
         count++;
+        //adds another body segment 
         [snakeBody addObject:[images objectAtIndex:count]];
+        //update scores
+        [self score];
         
+    }
+    if (snakeBlock.center.x < 20 || snakeBlock.center.x > 650)
+    {
+        NSLog(@"gameover");
     }
     
 }
@@ -141,6 +143,16 @@ int count = 0;
     foodY = foodY + 20;
     
     food.center = CGPointMake(foodX, foodY);
+}
+
+-(void)score
+{
+    scoreLabel.text = [NSString stringWithFormat:@"Score: %i", count];
+}
+
+-(void)gameOver
+{
+    
 }
 
 -(IBAction)start:(id)sender{
