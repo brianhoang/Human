@@ -331,6 +331,13 @@
                                 <rect key="frame" x="224" y="157" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="M21-6w-i89">
+                                <rect key="frame" x="279" y="124" width="85" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="RESTART">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -338,6 +345,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="food" destination="5tf-vt-SsM" id="FsO-Mb-YrT"/>
+                        <outlet property="restart" destination="M21-6w-i89" id="mHh-Xy-qQO"/>
                         <outlet property="scoreLabel" destination="SyN-OA-c6c" id="4fs-PH-gz4"/>
                         <outlet property="snakeBlock" destination="Lof-ml-dMx" id="z36-jS-GA6"/>
                         <outlet property="startGame" destination="LLl-d8-OEd" id="tFP-5B-bc9"/>
@@ -407,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVM-Jr-VUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-420" y="-224.83333333333334"/>
+            <point key="canvasLocation" x="-420.5" y="-225.5"/>
         </scene>
     </scenes>
     <resources>

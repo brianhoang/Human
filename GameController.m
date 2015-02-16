@@ -20,7 +20,8 @@ int count = 0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+
+
     //creates an mutable array
     snakeBody = [[NSMutableArray alloc]init];
     
@@ -32,9 +33,13 @@ int count = 0;
         body.hidden = YES;
     }
     
+    restart.hidden = YES;
     
     //when view loads up, food will be hidden
     food.hidden = YES;
+    
+        snakeMovement = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(snakeMoving) userInfo:nil repeats:YES];
+    
     
     // Do any additional setup after loading the view.
     snakeX = 30;
@@ -64,10 +69,11 @@ int count = 0;
     // Dispose of any resources that can be recreated.
 }
 
--(void)snakeMoving {
-   
+-(void)snakeMoving{
+    
     //happens every .3 seconds
     //iterates through array moving the body
+    if(moving == YES){
     for (int i = (int)snakeBody.count ; i > 1; i-- ){
         UIImageView* before = [snakeBody objectAtIndex:i-1];
         UIImageView* after = [snakeBody objectAtIndex:i-2];
@@ -75,7 +81,6 @@ int count = 0;
     };
         //updates head
         snakeBlock.center = CGPointMake(snakeBlock.center.x + snakeX, snakeBlock.center.y + snakeY);
-    NSLog(@"%f",snakeBlock.center.x);
 
     //makes body not hidden
     for (UIImageView *body in snakeBody){
@@ -91,13 +96,15 @@ int count = 0;
         [snakeBody addObject:[images objectAtIndex:count]];
         //update scores
         [self score];
-        
     }
-    if (snakeBlock.center.x < 20 || snakeBlock.center.x > 650)
+     
+    //sets boundaries for outer border
+    if (snakeBlock.center.x < 20 || snakeBlock.center.x > 634 || snakeBlock.center.y < 37 || snakeBlock.center.y > 337)
     {
-        NSLog(@"gameover");
+        [self gameOver];
     }
-    
+        
+  }
 }
 
 -(void)moveLeft {
@@ -152,20 +159,51 @@ int count = 0;
 
 -(void)gameOver
 {
+    restart.hidden = NO;
+    moving = NO;
+   // [snakeBody removeAllObjects];
+
+    [self newGame];
     
+}
+
+-(void)newGame
+{
+    startGame.hidden = NO;
 }
 
 -(IBAction)start:(id)sender{
     
-    startGame.hidden = YES;
+    count = 0;
+    [self score];
+    restart.hidden = YES;
+    //start snake movement
+    moving = YES;
+
+    snakeBlock.center = CGPointMake(304, 157);
     
     //place food at random position
     [self placeFood];
     food.hidden = NO;
     
     //every 0.3 seconds run snakeMoving
-    snakeMovement = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(snakeMoving) userInfo:nil repeats:YES];
+    [snakeBody removeAllObjects];
+    snakeBlock.center = CGPointMake(304, 157);
+    startGame.hidden = YES;
+    for (UIImageView* img in images){
+        img.hidden = YES;
+    }
+    [snakeBody addObject:snakeBlock];
+
+    snakeX = 30;
+    snakeY = 0;
+
+    snakeHorizontalMovement = YES;
+
+    
+
 }
+
 
 
 /*

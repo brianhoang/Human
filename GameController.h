@@ -19,6 +19,7 @@ int currentScore;
 BOOL snakeHorizontalMovement;
 BOOL snakeBlock4;
 
+
 NSMutableArray* snakeBody;
 
 @interface GameController : UIViewController
@@ -28,11 +29,15 @@ NSMutableArray* snakeBody;
     IBOutletCollection(UIImageView) NSArray *images;
     
     IBOutlet UIImageView* food;
+
     
     IBOutlet UILabel* scoreLabel;
     IBOutlet UIButton* startGame;
+    IBOutlet UIButton* restart;
     
     NSTimer* snakeMovement;
+    BOOL moving;
+
 }
 
 -(void)snakeMoving;
@@ -40,4 +45,5 @@ NSMutableArray* snakeBody;
 -(void)score;
 -(void)placeFood;
 -(void)gameOver;
+-(void)newGame;
 @end
