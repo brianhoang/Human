@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SpriteKit/SpriteKit.h>
+
 
 int snakeX;
 int snakeY;
@@ -19,11 +21,12 @@ int currentScore;
 BOOL snakeHorizontalMovement;
 BOOL snakeBlock4;
 
-
+CGRect frame;
 NSMutableArray* snakeBody;
 
 @interface GameController : UIViewController
 {
+    
     IBOutlet UIImageView* snakeBlock;
     
     IBOutletCollection(UIImageView) NSArray *images;
@@ -33,7 +36,6 @@ NSMutableArray* snakeBody;
     
     IBOutlet UILabel* scoreLabel;
     IBOutlet UIButton* startGame;
-    IBOutlet UIButton* restart;
     
     NSTimer* snakeMovement;
     BOOL moving;
@@ -45,5 +47,4 @@ NSMutableArray* snakeBody;
 -(void)score;
 -(void)placeFood;
 -(void)gameOver;
--(void)newGame;
 @end
